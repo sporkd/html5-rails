@@ -1,6 +1,6 @@
 module Html5
   module Rails
-    module BoilerplateHelpers
+    module BoilerplateHelper
 
       # Create a named haml tag to wrap IE conditional around a block
       # http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
