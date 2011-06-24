@@ -1,0 +1,19 @@
+// Here's where we define some default constants
+//@import "partials/base";
+
+// Then we'll import the compass extension
+@import "html5/boilerplate";
+
+// Now, you can simply include everything
+// (except media) by uncommeting this line
+@include html5-boilerplate;
+
+// Or, you can pick and choose only the sections
+// you want by using the these includes
+//@include html5-boilerplate-reset;
+//@include html5-boilerplate-fonts;
+//@include html5-boilerplate-styles;
+//@include html5-boilerplate-helpers;
+
+// Media should come last
+@import "partials/media";

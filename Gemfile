@@ -23,5 +23,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'compass', :git => 'https://github.com/chriseppstein/compass.git', :branch => 'rails31'
 
+gem 'compass-html5', :git => 'git://github.com/sporkd/compass-html5.git'
+
 # If you don't have node installed. // Will be fixed by 3.1 release
 gem "execjs", "~> 1.1.3"
