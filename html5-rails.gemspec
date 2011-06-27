@@ -5,6 +5,7 @@ require "html5/rails/version"
 Gem::Specification.new do |s|
   s.name        = "html5-rails"
   s.version     = Html5::Rails::VERSION
+  s.platform    = Gem::Platform::RUBY
   s.authors     = ["Peter Gumeson"]
   s.email       = ["gumeson@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/html5-rails"

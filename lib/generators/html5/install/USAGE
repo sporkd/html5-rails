@@ -1,0 +1,8 @@
+Description:
+    Installs Html5Rails and copies compass config file to your application.
+
+Example:
+    rails generate html5:install
+
+    This will create:
+        config/compass.rb
