@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "html5-rails"
 
   s.add_dependency "compass-html5", "~> 0.0.1"
-  s.add_dependency "railties",      "~> 3.1.0.rc1"
+  s.add_dependency "railties",      "~> 3.1.0.rc"
   s.add_dependency "thor",          "~> 0.14"
 
   s.files         = `git ls-files`.split("\n")
