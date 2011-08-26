@@ -33,7 +33,7 @@ module Html5
       end
 
       def remote_jquery(version)
-        if Rails.env == 'development'
+        if ::Rails.env == 'development'
           "'jquery', '#{version}', {uncompressed:true}"
         else
           "'jquery', '#{version}'"
@@ -41,7 +41,7 @@ module Html5
       end
 
       def local_jquery(version)
-        if Rails.env == 'development'
+        if ::Rails.env == 'development'
           "#{version}/jquery.js"
         else
           "#{version}/jquery.min.js"
@@ -59,7 +59,7 @@ module Html5
       end
 
       def google_config(key)
-        configs = YAML.load_file(File.join(Rails.root, 'config', 'google.yml'))[Rails.env.to_sym] rescue {}
+        configs = YAML.load_file(File.join(::Rails.root, 'config', 'google.yml'))[::Rails.env.to_sym] rescue {}
         configs[key]
       end
 
