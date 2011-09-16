@@ -10,6 +10,10 @@ module Html5
       #   end
       # end
 
+      def copy_views
+        directory "views", "app/views"
+      end
+
       def copy_config
         copy_file "compass.rb", "config/compass.rb"
       end
