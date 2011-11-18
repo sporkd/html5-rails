@@ -1,4 +1,5 @@
 #flash
   - flash.each do |key, value|
-    .message{ :class => key }
-      %p= value
+    .wrapper
+      %div{ title: key.to_s.humanize, class: key }
+        %p= value
