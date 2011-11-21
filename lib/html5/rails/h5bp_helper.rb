@@ -1,6 +1,6 @@
 module Html5
   module Rails
-    module BoilerplateHelper
+    module H5bpHelper
 
       # Create a named haml tag to wrap IE conditional around a block
       # http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
@@ -33,6 +33,7 @@ module Html5
       end
 
       def remote_jquery(version)
+        warn "[DEPRECATION] `remote_jquery` is deprecated."
         if ::Rails.env == 'development'
           "'jquery', '#{version}', {uncompressed:true}"
         else
@@ -41,6 +42,7 @@ module Html5
       end
 
       def local_jquery(version)
+        warn "[DEPRECATION] `local_jquery` is deprecated."
         if ::Rails.env == 'development'
           "#{version}/jquery.js"
         else
