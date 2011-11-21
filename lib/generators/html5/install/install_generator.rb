@@ -6,7 +6,7 @@ module Html5
       # def run_config
       #   inside do
       #     # Needs more work
-      #     run("bundle exec compass config --app rails -r compass-html5 -q")
+      #     run("bundle exec compass config --app rails -r compass-h5bp -q")
       #   end
       # end
 

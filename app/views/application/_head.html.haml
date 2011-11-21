@@ -9,7 +9,7 @@
 %title
   == #{ controller.controller_name.titleize } - #{ controller.action_name.titleize }
   
-%meta{ name: "description", content: => "" }/
+%meta{ name: "description", content: "" }/
 %meta{ name: "author", content: "" }/
 
 -# Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
@@ -21,6 +21,6 @@
 -# All JavaScript at the bottom, except this Modernizr build incl. Respond.js
 -# Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
 -# for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/
-= javascript_include_tag "modernizr.min"
+= javascript_include_tag "polyfills"
 
 = csrf_meta_tag

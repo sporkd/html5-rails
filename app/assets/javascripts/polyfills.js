@@ -1,1 +1,1 @@
-//= require html5/boilerplate/polyfills
+//= require h5bp/polyfills

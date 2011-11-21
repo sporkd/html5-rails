@@ -1,19 +1,32 @@
-// Here's where we define some default constants
-//@import "partials/base";
+$line-height: 1.4;
+$font-color: #222;
+$link-color: #00e;
+$link-hover-color: #06e;
+$link-visited-color: #551a8b;
+$selected-font-color: #fff;
+$selected-background-color: #ff5e99;
+$invalid-background-color: #f0dddd;
 
-// Then we'll import the compass extension
-@import "html5/boilerplate";
+// Html5 Boilerplate compass extension
+@import "h5bp";
 
-// Now, you can simply include everything
-// (except media) by uncommeting this line
-@include html5-boilerplate;
+// Normalize styles
+@include h5bp-display;
+@include h5bp-base;
+@include h5bp-links;
+@include h5bp-typography;
+@include h5bp-lists;
+@include h5bp-embeds;
+@include h5bp-figures;
+@include h5bp-forms;
+@include h5bp-tables;
 
-// Or, you can pick and choose only the sections
-// you want by using the these includes
-//@include html5-boilerplate-reset;
-//@include html5-boilerplate-fonts;
-//@include html5-boilerplate-styles;
-//@include html5-boilerplate-helpers;
+// Application styles
+@import "application/primary";
+@import "application/media_queries";
 
-// Media should come last
-@import "partials/media";
+// Html5 Boilerplate helpers
+@include h5bp-helpers;
+
+// Html5 Boilerplate media
+@include h5bp-media;

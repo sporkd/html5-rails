@@ -9,12 +9,12 @@ Gem::Specification.new do |s|
   s.authors     = ["Peter Gumeson"]
   s.email       = ["gumeson@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/html5-rails"
-  s.summary     = %q{Rails support for the compass-html5 gem.}
+  s.summary     = %q{ Rails support for the compass-h5bp gem }
   s.description = %q{}
 
   s.rubyforge_project = "html5-rails"
 
-  s.add_dependency "compass-html5", "~> 0.0.1"
+  s.add_dependency "compass-h5bp", "~> 0.0.1"
   s.add_dependency "railties",      "~> 3.1.0"
   s.add_dependency "thor",          "~> 0.14"
 
