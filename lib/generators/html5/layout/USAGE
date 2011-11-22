@@ -1,0 +1,8 @@
+Description:
+    Removes Erb layout and installs a html5-rails Haml layout.
+
+Example:
+    rails generate html5:layout
+
+    This will create:
+        app/views/layouts/application.html.haml
