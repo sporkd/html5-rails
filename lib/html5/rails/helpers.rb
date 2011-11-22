@@ -1,6 +1,6 @@
 module Html5
   module Rails
-    module H5bpHelper
+    module Helpers
 
       # Create a named haml tag to wrap IE conditional around a block
       # http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
@@ -25,11 +25,11 @@ module Html5
       end
 
       def google_account_id
-        ENV['GOOGLE_ACCOUNT_ID'] || google_config(:google_account_id)
+        ENV['GOOGLE_ACCOUNT_ID'] || html5_rails_config(:google_account_id)
       end
 
       def google_api_key
-        ENV['GOOGLE_API_KEY'] || google_config(:google_api_key)
+        ENV['GOOGLE_API_KEY'] || html5_rails_config(:google_api_key)
       end
 
       def remote_jquery(version)
@@ -60,8 +60,8 @@ module Html5
         attrs.merge(:class => classes)
       end
 
-      def google_config(key)
-        configs = YAML.load_file(File.join(::Rails.root, 'config', 'google.yml'))[::Rails.env.to_sym] rescue {}
+      def html5_rails_config(key)
+        configs = YAML.load_file(File.join(::Rails.root, 'config', 'html5_rails.yml'))[::Rails.env.to_sym] rescue {}
         configs[key]
       end
 

@@ -1,0 +1,26 @@
+# This file stores various api keys that html5-rails
+# uses to render various code blocks or features.
+# (i.e. Google Analytics)
+#
+# Leaving the value blank will result in that code
+# block or feature not rendering.
+#
+# Additionally, you can define any key/value in
+# you ENV and it will take precidence.
+# e.g. ENV['google_account_id'] || yml[:google_account_id]
+
+defaults: &defaults
+  :google_account_id: ""  # For Google Analytics
+  :google_api_key: ""     # Google APIs
+
+:development:
+  <<: *defaults
+
+:test:
+  <<: *defaults
+
+:staging:
+  <<: *defaults
+
+:production:
+  <<: *defaults

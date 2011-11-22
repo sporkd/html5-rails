@@ -3,6 +3,6 @@ require "html5/rails/engine"
 
 module Html5
   module Rails
-    autoload :H5bpHelper, 'html5/rails/h5bp_helper'
+    autoload :Helpers, 'html5/rails/helpers'
   end
 end

@@ -12,6 +12,7 @@ module Html5
 
       def copy_config
         copy_file "compass.rb", "config/compass.rb"
+        copy_file "html5_rails.yml", "config/html5_rails.yml"
       end
 
       def show_readme

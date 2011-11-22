@@ -4,7 +4,7 @@ module Html5
 
       # Extend application_helper
       initializer 'html5_rails_engine.helper' do |app|
-        ActionController::Base.helper(Html5::Rails::H5bpHelper)
+        ActionController::Base.helper(Html5::Rails::Helpers)
       end
 
       # Extend application_controller
