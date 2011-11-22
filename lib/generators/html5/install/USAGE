@@ -6,4 +6,4 @@ Example:
 
     This will create:
         config/compass.rb
-        config/api_keys.yml
+        config/html5_rails.yml

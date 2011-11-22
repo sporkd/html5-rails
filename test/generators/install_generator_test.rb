@@ -14,4 +14,14 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     run_generator
     assert_file "config/html5_rails.yml"
   end
+
+  test "application.html.erb layout should be removed" do
+    run_generator
+    assert_no_file "app/views/layouts/application.html.erb"
+  end
+
+  test "application.html.haml layout should be copied" do
+    run_generator
+    assert_file "app/views/layouts/application.html.haml"
+  end
 end
