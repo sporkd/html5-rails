@@ -4,11 +4,11 @@
   %head
     = render "head"
 
-  %body{ class: "#{ controller.controller_name }" }
+  %body{ :class => "#{ controller.controller_name }" }
     %header#header
       = render "header"
 
-    #main{ role: "main" }
+    #main{ :role => "main" }
       = render "flashes"
       = yield
 
