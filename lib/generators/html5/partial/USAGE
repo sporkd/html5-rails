@@ -1,0 +1,8 @@
+Description:
+    Generates a partial
+
+Example:
+    rails generate html5:partial _partial_name
+
+    This will create:
+        app/views/application/_partial_name.html.haml

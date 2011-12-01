@@ -1,29 +1,39 @@
 module Html5
   module Generators
-    class LayoutGenerator < ::Rails::Generators::Base
+    class LayoutGenerator < ::Rails::Generators::NamedBase
       source_root File.expand_path('../../../../../app/views', __FILE__)
 
       argument :name, :type => :string,
                       :required => false,
-                      :default => "application",
-                      :desc => "The layout name"
+                      :default => "application"
 
-      class_option :partials, :type => :boolean,
-                              :default => false,
-                              :desc => "Generate partials"
+      class_option :all_partials, :type => :boolean,
+                                  :default => false,
+                                  :desc => "Generate all partials for this layout"
 
+      class_option :minimal_partials, :type => :boolean,
+                                      :default => false,
+                                      :desc => "Generate minimal partials for this layout"
+                                
       def generate_layout
-        remove_file "app/views/layouts/#{ name.underscore }.html.erb"
-        copy_file "layouts/application.html.haml", "app/views/layouts/#{ name.underscore }.html.haml"
+        if file_path == "application"
+          remove_file "app/views/layouts/application.html.erb"
+        end
+        file_ext = ".html.haml"
+        copy_file File.join("layouts", "application" + file_ext), File.join("app/views/layouts", file_path + file_ext)
       end
-
-      def copy_partials
-        puts "OPTIONS #{options.inspect}"
-        if options.partials?
-          puts "GOT PARTIALS...."
-          directory "application", "app/views/#{ name.underscore }"
+      
+      def generate_partials
+        if options.all_partials?
+          invoke "html5:partial", [], { :all => true, :path => file_path }
+        end
+        
+        if options.minimal_partials?
+          invoke "html5:partial", [], { :minimal => true, :path => file_path }
         end
       end
+
+    protected
     end
   end
 end

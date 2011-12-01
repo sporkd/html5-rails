@@ -15,6 +15,10 @@ module Html5
         copy_file "html5_rails.yml", "config/html5_rails.yml"
       end
 
+      def generate_layout
+        invoke "html5:layout", ["application"], { :minimal => true }
+      end
+
       def show_readme
         readme "README" if behavior == :invoke
       end
