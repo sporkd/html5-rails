@@ -1,0 +1,17 @@
+// This is the index for specifying what partials to load
+// from your stylesheets/application directory.
+
+//-----------------------------------------
+// Import anything needed inside partials
+//-----------------------------------------
+// @import "compass/**/*";
+
+//-----------------------------------------
+// Add custom partials here
+//-----------------------------------------
+@import "document";
+
+//-----------------------------------------
+// Media queries come last
+//-----------------------------------------
+@import "media_queries";
