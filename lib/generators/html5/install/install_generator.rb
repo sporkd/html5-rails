@@ -16,7 +16,7 @@ module Html5
       end
 
       def generate_layout
-        invoke "html5:layout", ["application"], { :minimal => true }
+        invoke "html5:layout", ["application"], { :minimal_partials => true }
       end
 
       def show_readme

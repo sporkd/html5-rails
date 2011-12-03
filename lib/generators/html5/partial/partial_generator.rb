@@ -32,6 +32,9 @@ module Html5
       # end
 
       def generate_partials
+        if partials.any?
+          empty_directory File.join("app/views", partial_path)
+        end
         partials.each do |partial|
           generate_partial(partial)
         end
@@ -62,7 +65,6 @@ module Html5
 
       def generate_partial(partial_name)
         file_ext = ".html.haml"
-        empty_directory File.join("app/views", partial_path)
         copy_file File.join("application", partial_name + file_ext), File.join("app/views", partial_path, partial_name + file_ext)
       end
     end
