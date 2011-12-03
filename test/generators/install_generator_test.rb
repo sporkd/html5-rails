@@ -1,9 +1,7 @@
 require "test_helper"
 
-class InstallGeneratorTest < Rails::Generators::TestCase
+class InstallGeneratorTest < GeneratorTest
   tests Html5::Generators::InstallGenerator
-  destination File.expand_path("../../tmp", __FILE__)
-  setup :prepare_destination
 
   test "Compass config file should be generated" do
     run_generator

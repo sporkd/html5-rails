@@ -22,7 +22,6 @@ ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 # For generators
-require "rails/generators/test_case"
 require "generators/html5/install/install_generator"
 require "generators/html5/layout/layout_generator"
 require "generators/html5/partial/partial_generator"

@@ -1,9 +1,7 @@
 require "test_helper"
 
-class LayoutGeneratorTest < Rails::Generators::TestCase
+class LayoutGeneratorTest < GeneratorTest
   tests Html5::Generators::LayoutGenerator
-  destination File.expand_path("../../tmp", __FILE__)
-  setup :prepare_destination
 
   test "with no argument" do
     run_generator
@@ -40,18 +38,33 @@ class LayoutGeneratorTest < Rails::Generators::TestCase
   test "with --all-partials flag" do
     run_generator ["--all-partials"]
     assert_file "app/views/layouts/application.html.haml"
+    assert_file "app/views/application/_flashes.html.haml"
+    assert_file "app/views/application/_footer.html.haml"
+    assert_file "app/views/application/_head.html.haml"
+    assert_file "app/views/application/_header.html.haml"
     assert_file "app/views/application/_javascripts.html.haml"
+    assert_file "app/views/application/_stylesheets.html.haml"
   end
 
   test "with layout named pancakes and --all-partials flag" do
     run_generator ["pancakes", "--all-partials"]
     assert_file "app/views/layouts/pancakes.html.haml"
+    assert_file "app/views/pancakes/_flashes.html.haml"
+    assert_file "app/views/pancakes/_footer.html.haml"
+    assert_file "app/views/pancakes/_head.html.haml"
+    assert_file "app/views/pancakes/_header.html.haml"
     assert_file "app/views/pancakes/_javascripts.html.haml"
+    assert_file "app/views/pancakes/_stylesheets.html.haml"
   end
 
   test "with layout named admin/pancakes all --all-partials flag" do
     run_generator ["admin/pancakes", "--all-partials"]
     assert_file "app/views/layouts/admin/pancakes.html.haml"
+    assert_file "app/views/admin/pancakes/_flashes.html.haml"
+    assert_file "app/views/admin/pancakes/_footer.html.haml"
+    assert_file "app/views/admin/pancakes/_head.html.haml"
+    assert_file "app/views/admin/pancakes/_header.html.haml"
     assert_file "app/views/admin/pancakes/_javascripts.html.haml"
+    assert_file "app/views/admin/pancakes/_stylesheets.html.haml"
   end
 end

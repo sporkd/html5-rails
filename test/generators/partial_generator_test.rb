@@ -1,9 +1,7 @@
 require "test_helper"
 
-class PartialGeneratorTest < Rails::Generators::TestCase
+class PartialGeneratorTest < GeneratorTest
   tests Html5::Generators::PartialGenerator
-  destination File.expand_path("../../tmp", __FILE__)
-  setup :prepare_destination
 
   test "with no arguments" do
     run_generator
