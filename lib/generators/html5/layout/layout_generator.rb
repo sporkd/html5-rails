@@ -14,7 +14,7 @@ module Html5
       class_option :minimal_partials, :type => :boolean,
                                       :default => false,
                                       :desc => "Generate minimal partials for this layout"
-                                
+
       def generate_layout
         if file_path == "application"
           remove_file "app/views/layouts/application.html.erb"
@@ -22,12 +22,12 @@ module Html5
         file_ext = ".html.haml"
         copy_file File.join("layouts", "application" + file_ext), File.join("app/views/layouts", file_path + file_ext)
       end
-      
+
       def generate_partials
         if options.all_partials?
           invoke "html5:partial", [], { :all => true, :path => file_path }
         end
-        
+
         if options.minimal_partials?
           invoke "html5:partial", [], { :minimal => true, :path => file_path }
         end

@@ -1,3 +1,5 @@
+require "generators/html5/generator_helpers"
+
 module Html5
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
@@ -11,8 +13,8 @@ module Html5
       # end
 
       def copy_configs
-        copy_file "compass.rb", "config/compass.rb"
-        copy_file "html5_rails.yml", "config/html5_rails.yml"
+        template "config/compass.rb"
+        template "config/html5_rails.yml"
       end
 
       def generate_layout
