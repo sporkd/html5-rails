@@ -1,8 +1,10 @@
-require "rails/generators/test_case"
-
-class GeneratorTest < Rails::Generators::TestCase
-  destination File.expand_path("../../tmp", __FILE__)
-  setup :prepare_destination
+module GeneratorTestHelper
+  def self.included(base)
+    base.class_eval do
+      destination File.expand_path("../../tmp", __FILE__)
+      setup :prepare_destination
+    end
+  end
 
 protected
 

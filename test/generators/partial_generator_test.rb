@@ -1,6 +1,8 @@
 require "test_helper"
+require "generators/html5/partial/partial_generator"
 
-class PartialGeneratorTest < GeneratorTest
+class PartialGeneratorTest < Rails::Generators::TestCase
+  include GeneratorTestHelper
   tests Html5::Generators::PartialGenerator
 
   test "with no arguments" do
@@ -20,41 +22,39 @@ class PartialGeneratorTest < GeneratorTest
 
   test "with flag --minimal" do
     run_generator %w(--minimal)
-    assert_no_file "app/views/application/_flashes.html.haml"
-    assert_file    "app/views/application/_footer.html.haml"
-    assert_file    "app/views/application/_head.html.haml"
-    assert_file    "app/views/application/_header.html.haml"
-    assert_no_file "app/views/application/_javascripts.html.haml"
-    assert_no_file "app/views/application/_stylesheets.html.haml"
+
+    %w(_footer _head _header).each do |file|
+      assert_file "app/views/application/#{ file }.html.haml"
+    end
+    %w(_flashes _javascripts _stylesheets).each do |file|
+      assert_no_file "app/views/application/#{ file }.html.haml"
+    end
   end
 
   test "with flag --all" do
     run_generator %w(--all)
-    assert_file "app/views/application/_flashes.html.haml"
-    assert_file "app/views/application/_footer.html.haml"
-    assert_file "app/views/application/_head.html.haml"
-    assert_file "app/views/application/_header.html.haml"
-    assert_file "app/views/application/_javascripts.html.haml"
-    assert_file "app/views/application/_stylesheets.html.haml"
+
+    %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+      assert_file "app/views/application/#{ file }.html.haml"
+    end
   end
 
   test "with flags --minimal and --path" do
     run_generator ["--minimal", "--path=waffles"]
-    assert_no_file "app/views/waffles/_flashes.html.haml"
-    assert_file    "app/views/waffles/_footer.html.haml"
-    assert_file    "app/views/waffles/_head.html.haml"
-    assert_file    "app/views/waffles/_header.html.haml"
-    assert_no_file "app/views/waffles/_javascripts.html.haml"
-    assert_no_file "app/views/waffles/_stylesheets.html.haml"
+
+    %w(_footer _head _header).each do |file|
+      assert_file "app/views/waffles/#{ file }.html.haml"
+    end
+    %w(_flashes _javascripts _stylesheets).each do |file|
+      assert_no_file "app/views/waffles/#{ file }.html.haml"
+    end
   end
 
   test "with flags --all and --path" do
     run_generator ["--all", "--path=admin/waffles"]
-    assert_file "app/views/admin/waffles/_flashes.html.haml"
-    assert_file "app/views/admin/waffles/_footer.html.haml"
-    assert_file "app/views/admin/waffles/_head.html.haml"
-    assert_file "app/views/admin/waffles/_header.html.haml"
-    assert_file "app/views/admin/waffles/_javascripts.html.haml"
-    assert_file "app/views/admin/waffles/_stylesheets.html.haml"
+
+    %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+      assert_file "app/views/admin/waffles/#{ file }.html.haml"
+    end
   end
 end

@@ -1,6 +1,8 @@
 require "test_helper"
+require "generators/html5/install/install_generator"
 
-class InstallGeneratorTest < GeneratorTest
+class InstallGeneratorTest < Rails::Generators::TestCase
+  include GeneratorTestHelper
   tests Html5::Generators::InstallGenerator
 
   test "Compass config file should be generated" do

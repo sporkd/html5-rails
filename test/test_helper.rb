@@ -15,13 +15,8 @@ require "capybara/rails"
 Capybara.default_driver   = :rack_test
 Capybara.default_selector = :css
 
-# Run any available migration
-ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)
-
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 # For generators
-require "generators/html5/install/install_generator"
-require "generators/html5/layout/layout_generator"
-require "generators/html5/partial/partial_generator"
+require 'rails/generators/test_case'
