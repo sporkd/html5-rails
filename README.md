@@ -9,7 +9,7 @@ by Paul Irish, Divya Manian and many other [fine folks](https://github.com/h5bp/
 Installation
 =========================
 
-We're a bit light on documentation right now, but this should get you going.
+We're a bit light on documentation right now, but this should get you going...
 
 In your Gemfile
 
@@ -47,7 +47,7 @@ replace with application.html.haml. An erb option is in the works.
 
 [2] The generators are not copying css or js assets yet,
 so you'll want your app/assets directory to
-[look something like this](https://github.com/sporkd/html5-rails/tree/master/app/assets/javascripts).
+[look something like this](https://github.com/sporkd/html5-rails/tree/master/app/assets).
 
 [3] I'm still organizing stuff to be as flexible as possible, so some
 paths might change. Just make sure you re-run generators when upgrading.
