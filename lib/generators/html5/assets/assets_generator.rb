@@ -11,6 +11,10 @@ module Html5
       # end
 
       def generate_stylesheets
+        if file_path == "application"
+          remove_file "app/assets/stylesheets/application.css"
+        end
+
         file_ext = ".css.scss"
         copy_file File.join("_defaults" + file_ext), File.join("app/assets/stylesheets/_defaults" + file_ext)
         template File.join("application" + file_ext), File.join("app/assets/stylesheets", stylesheet_name + file_ext)

@@ -17,8 +17,12 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   
   test "application layout should be generated" do
     run_generator
-    assert_no_file "app/views/layouts/application.html.erb"
     assert_file "app/views/layouts/application.html.haml"
+  end
+
+  test "application.html.erb gets removed" do
+    run_generator
+    assert_no_file "app/views/layouts/application.html.erb"
   end
 
   test "minimal application partials should be generated" do
@@ -33,10 +37,16 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
   test "assets should be generated" do
     run_generator
+
     assert_file "app/assets/stylesheets/_defaults.css.scss"
     assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/document";/
     %w(_defaults document media_queries).each do |file|
       assert_file "app/assets/stylesheets/application/#{ file }.css.scss"
     end
+  end
+
+  test "application.css gets removed" do
+    run_generator
+    assert_no_file "app/assets/stylesheets/application.css"
   end
 end

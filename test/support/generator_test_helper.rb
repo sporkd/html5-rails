@@ -13,5 +13,6 @@ protected
     mkdir_p(destination_root + "/app")
     dummy_app = File.expand_path("../../dummy", __FILE__)
     FileUtils.cp_r(dummy_app + "/app/views", destination_root + "/app")
+    FileUtils.cp_r(dummy_app + "/app/assets", destination_root + "/app")
   end
 end
