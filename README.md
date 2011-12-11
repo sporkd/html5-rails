@@ -45,11 +45,7 @@ Notes
 [1] The install generator will remove your application.html.erb layout and
 replace with application.html.haml. An erb option is in the works.
 
-[2] The generators are not copying css or js assets yet,
-so you'll want your app/assets directory to
-[look something like this](https://github.com/sporkd/html5-rails/tree/master/app/assets).
-
-[3] I'm still organizing stuff to be as flexible as possible, so some
+[2] I'm still organizing stuff to be as flexible as possible, so some
 paths might change. Just make sure you re-run generators when upgrading.
 
 
