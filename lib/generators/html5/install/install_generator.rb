@@ -21,6 +21,10 @@ module Html5
         invoke "html5:layout", ["application"], { :minimal_partials => true }
       end
 
+      def generate_assets
+        invoke "html5:assets", ["application"]
+      end
+
       def show_readme
         readme "README" if behavior == :invoke
       end
