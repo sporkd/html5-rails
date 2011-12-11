@@ -8,7 +8,7 @@
 // Define some variables first
 //-----------------------------------------
 @import "defaults";
-@import "application/defaults";
+@import "<%= file_path %>/defaults";
 
 //-----------------------------------------
 // Compass libraries and extensions
@@ -24,14 +24,14 @@
 //-----------------------------------------
 // Import all your custom partials below
 //-----------------------------------------
-@import "application/document";
+@import "<%= file_path %>/document";
 
 
 
 //-----------------------------------------
 // Your media queries come last
 //-----------------------------------------
-@import "application/media_queries";
+@import "<%= file_path %>/media_queries";
 
 //-----------------------------------------
 // Html5 Boilerplate helpers
