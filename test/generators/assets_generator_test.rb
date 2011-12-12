@@ -7,7 +7,9 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
 
   test "javascripts should be generated" do
     run_generator
-    assert_file "app/assets/javascripts/application.js", /\/\/= require h5bp/
+    assert_file "app/assets/javascripts/application.js", /\/\/= require h5bp/ do |contents|
+      assert_no_match /require_tree \./, contents
+    end
     assert_file "app/assets/javascripts/polyfills.js"
   end
 

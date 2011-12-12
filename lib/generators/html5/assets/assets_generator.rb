@@ -8,14 +8,16 @@ module Html5
                       :default => "application"
 
       def generate_javascripts
-        if file_path == "application"
-          inject_into_file "app/assets/javascripts/application.js", :after => "require jquery_ujs" do
+        asset_path = "app/assets/javascripts/#{ asset_name }.js"
+        if File.exist?(asset_path) && File.read(asset_path) =~ /require jquery_ujs$/
+          inject_into_file asset_path, :after => "require jquery_ujs" do
             "\n//= require h5bp"
           end
+          gsub_file asset_path, /^\/\/= require_tree \.(\\n)?/, ""
         else
-          template File.join("javascripts", "application.js"), File.join("app/assets/javascripts", "#{ asset_name }.js")
+          template "javascripts/application.js", asset_path
         end
-        template File.join("javascripts", "polyfills.js"), File.join("app/assets/javascripts", "polyfills.js")
+        template "javascripts/polyfills.js", "app/assets/javascripts/polyfills.js"
       end
 
       def generate_stylesheets
@@ -24,8 +26,8 @@ module Html5
         end
 
         file_ext = ".css.scss"
-        copy_file File.join("stylesheets", "_defaults" + file_ext), File.join("app/assets/stylesheets/_defaults" + file_ext)
-        template File.join("stylesheets", "application" + file_ext), File.join("app/assets/stylesheets", asset_name + file_ext)
+        copy_file "stylesheets/_defaults#{ file_ext }", "app/assets/stylesheets/_defaults#{ file_ext }"
+        template "stylesheets/application#{ file_ext }", File.join("app/assets/stylesheets", asset_name + file_ext)
       end
 
       def generate_stylesheet_partials
@@ -35,7 +37,7 @@ module Html5
 
         file_ext = ".css.scss"
         stylesheet_partials.each do |partial|
-          template File.join("stylesheets", "application", partial + file_ext), File.join("app/assets/stylesheets", asset_name, partial + file_ext)
+          template File.join("stylesheets/application", partial + file_ext), File.join("app/assets/stylesheets", asset_name, partial + file_ext)
         end
       end
 

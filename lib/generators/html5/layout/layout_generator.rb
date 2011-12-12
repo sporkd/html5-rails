@@ -20,7 +20,7 @@ module Html5
           remove_file "app/views/layouts/application.html.erb"
         end
         file_ext = ".html.haml"
-        copy_file File.join("layouts", "application" + file_ext), File.join("app/views/layouts", class_path, file_name + file_ext)
+        copy_file "layouts/application#{ file_ext }", File.join("app/views/layouts", class_path, file_name + file_ext)
       end
 
       def generate_partials
