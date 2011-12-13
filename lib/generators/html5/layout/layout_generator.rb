@@ -1,6 +1,10 @@
+require "generators/html5/generator_helpers"
+
 module Html5
   module Generators
     class LayoutGenerator < ::Rails::Generators::NamedBase
+      include Html5::Generators::GeneratorHelpers
+
       source_root File.expand_path('../../../../../app/views', __FILE__)
 
       argument :name, :type => :string,

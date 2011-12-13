@@ -3,6 +3,8 @@ require "generators/html5/generator_helpers"
 module Html5
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
+      include Html5::Generators::GeneratorHelpers
+
       source_root File.expand_path('../templates', __FILE__)
 
       # def run_config

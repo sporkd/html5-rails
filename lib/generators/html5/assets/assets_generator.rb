@@ -1,6 +1,10 @@
+require "generators/html5/generator_helpers"
+
 module Html5
   module Generators
     class AssetsGenerator < ::Rails::Generators::NamedBase
+      include Html5::Generators::GeneratorHelpers
+
       source_root File.expand_path('../templates', __FILE__)
 
       argument :name, :type => :string,
