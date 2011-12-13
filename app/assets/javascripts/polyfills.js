@@ -3,7 +3,7 @@
 //
 // polyfill (n): a JavaScript shim that replicates the standard API for older browsers.
 //
-// Html5 Boilerplate polyfills http://goo.gl/YoFh7
-//= require h5bp/polyfills
+// Html5 Boilerplate polyfills
+//= require modernizr.min
 //
 // Add your own polyfills below
