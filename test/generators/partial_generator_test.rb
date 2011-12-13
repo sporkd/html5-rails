@@ -57,4 +57,14 @@ class PartialGeneratorTest < Rails::Generators::TestCase
       assert_file "app/views/admin/waffles/#{ file }.html.haml"
     end
   end
+
+  test "header should contain app title" do
+    run_generator %w(_header)
+    assert_file "app/views/application/_header.html.haml", /h1 Dummy/
+  end
+
+  test "footer should contain app title" do
+    run_generator %w(_footer)
+    assert_file "app/views/application/_footer.html.haml", /Dummy, Copyright/
+  end
 end
