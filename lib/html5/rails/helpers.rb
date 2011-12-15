@@ -33,7 +33,7 @@ module Html5
       end
 
       def remote_jquery(version)
-        warn "[DEPRECATION] `remote_jquery` is deprecated."
+        warn "[DEPRECATION] 'remote_jquery' is deprecated."
         if ::Rails.env == 'development'
           "'jquery', '#{version}', {uncompressed:true}"
         else
@@ -42,7 +42,7 @@ module Html5
       end
 
       def local_jquery(version)
-        warn "[DEPRECATION] `local_jquery` is deprecated."
+        warn "[DEPRECATION] 'local_jquery' is deprecated."
         if ::Rails.env == 'development'
           "#{version}/jquery.js"
         else
@@ -53,9 +53,9 @@ module Html5
       private
 
       def add_class(name, attrs)
-        classes = attrs[:class] || ''
+        classes = attrs[:class] || ""
         classes.strip!
-        classes = ' ' + classes if !classes.blank?
+        classes = " " + classes if !classes.blank?
         classes = name + classes
         attrs.merge(:class => classes)
       end
