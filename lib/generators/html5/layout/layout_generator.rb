@@ -5,7 +5,7 @@ module Html5
     class LayoutGenerator < ::Rails::Generators::NamedBase
       include Html5::Generators::GeneratorHelpers
 
-      source_root File.expand_path('../../../../../app/views', __FILE__)
+      source_root File.expand_path('../templates', __FILE__)
 
       argument :name, :type => :string,
                       :required => false,
@@ -24,7 +24,7 @@ module Html5
           remove_file "app/views/layouts/application.html.erb"
         end
         file_ext = ".html.haml"
-        copy_file "layouts/application#{ file_ext }", File.join("app/views/layouts", class_path, file_name + file_ext)
+        copy_file "application#{ file_ext }", File.join("app/views/layouts", class_path, file_name + file_ext)
       end
 
       def generate_partials

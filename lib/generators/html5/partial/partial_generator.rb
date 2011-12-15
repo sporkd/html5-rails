@@ -5,7 +5,7 @@ module Html5
     class PartialGenerator < ::Rails::Generators::NamedBase
       include Html5::Generators::GeneratorHelpers
 
-      source_root File.expand_path('../../../../../app/views', __FILE__)
+      source_root File.expand_path('../templates', __FILE__)
 
       argument :name, :type => :string,
                       :required => false,
@@ -69,7 +69,7 @@ module Html5
 
       def generate_partial(partial_name)
         file_ext = ".html.haml"
-        template File.join("application", partial_name + file_ext), File.join("app/views", partial_path, partial_name + file_ext)
+        template partial_name + file_ext, File.join("app/views", partial_path, partial_name + file_ext)
       end
     end
   end
