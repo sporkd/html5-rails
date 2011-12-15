@@ -7,6 +7,8 @@ module Html5
 
       source_root File.expand_path('../templates', __FILE__)
 
+      class_option :template_engine
+
       # def run_config
       #   inside do
       #     # Needs more work
@@ -20,7 +22,7 @@ module Html5
       end
 
       def generate_layout
-        invoke "html5:layout", ["application"], { :minimal_partials => true }
+        invoke "html5:layout", ["application"], { :minimal_partials => true, :template_engine => options[:template_engine] }
       end
 
       def generate_assets

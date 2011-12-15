@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<%# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither %>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class='no-js' lang='en'>
+  <!--<![endif]-->
+
+  <%= render "head" %>
+
+  <body class='pages'>
+    <%= render "header" %>
+
+    <div id='main' role='main'>
+      <%= render "flashes" %>
+      <%= yield %>
+    </div>
+
+    <%= render "footer" %>
+
+    <%# Javascript at the bottom for fast page loading %>
+    <%= render "javascripts" %>
+  </body>
+</html>

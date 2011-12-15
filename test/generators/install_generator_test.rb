@@ -17,21 +17,22 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   
   test "application layout should be generated" do
     run_generator
-    assert_file "app/views/layouts/application.html.haml"
+    assert_file "app/views/layouts/application.html.erb"
   end
 
-  test "application.html.erb gets removed" do
-    run_generator
+  test "with flag --template-engine=haml" do
+    run_generator ["--template-engine=haml"]
     assert_no_file "app/views/layouts/application.html.erb"
+    assert_file "app/views/layouts/application.html.haml"
   end
 
   test "minimal application partials should be generated" do
     run_generator
     %w(_footer _head _header).each do |file|
-      assert_file "app/views/application/#{ file }.html.haml"
+      assert_file "app/views/application/#{ file }.html.erb"
     end
     %w(_flashes _javascripts _stylesheets).each do |file|
-      assert_no_file "app/views/application/#{ file }.html.haml"
+      assert_no_file "app/views/application/#{ file }.html.erb"
     end
   end
 

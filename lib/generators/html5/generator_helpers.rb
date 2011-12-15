@@ -18,6 +18,20 @@ module Html5
         end
       end
 
+    protected
+
+      def format
+        :html
+      end
+
+      def handler
+        # Rails.configuration.generators.rails[:template_engine] ||
+        options[:template_engine] || :erb
+      end
+
+      def filename_with_extensions(name)
+        [name, format, handler].compact.join(".")
+      end
     end
   end
 end

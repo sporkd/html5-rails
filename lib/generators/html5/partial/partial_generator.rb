@@ -24,6 +24,8 @@ module Html5
                            :required => false,
                            :desc => "resource path to generate partials in"
 
+      class_option :template_engine
+
       # def validate_name
       #   if options[:all] || options[:minimal]
       #     if partials.include?(file_name)
@@ -68,8 +70,7 @@ module Html5
       end
 
       def generate_partial(partial_name)
-        file_ext = ".html.haml"
-        template partial_name + file_ext, File.join("app/views", partial_path, partial_name + file_ext)
+        template filename_with_extensions(partial_name), File.join("app/views", partial_path, filename_with_extensions(partial_name))
       end
     end
   end
