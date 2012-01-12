@@ -1,7 +1,11 @@
 ===============================================================================
 
-Additional steps:
+You are now on html5-rails. Really, that's it for now.
 
-  1.
+If want all to genrate additional layouts, just run:
+$ rails g html5:layout my_new_layout
+
+Or if want to customize your other shared partials:
+$ rails g html5:partial --all
 
 ===============================================================================

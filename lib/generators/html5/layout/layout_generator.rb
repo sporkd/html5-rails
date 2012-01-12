@@ -22,10 +22,10 @@ module Html5
       class_option :template_engine
 
       def generate_layout
-        if file_path == "application" && options[:template_engine] != "erb"
+        if file_path == "application" && options[:template_engine].to_s != "erb"
           remove_file File.join("app/views/layouts/application.html.erb")
         end
-        copy_file filename_with_extensions("application"), File.join("app/views/layouts", class_path, filename_with_extensions(file_name))
+        template filename_with_extensions("application"), File.join("app/views/layouts", class_path, filename_with_extensions(file_name))
       end
 
       def generate_partials

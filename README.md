@@ -22,8 +22,9 @@ group :assets do
   gem 'compass-h5bp'
 end
 
+gem 'haml-rails' #(Optional) to use haml
+
 gem 'jquery-rails'
-gem 'haml-rails'
 gem 'html5-rails', :git => 'git://github.com/sporkd/html5-rails.git'
 ```
 
@@ -39,17 +40,12 @@ Run generator
 $ rails generate html5:install
 ```
 
-or
-
-```
-$ rails generate html5:install --template-engine=haml
-```
-
 Notes
 ---------------
 
-[1] If you use `--template-engine=haml`, the install generator will remove
-your application.html.erb layout.
+[1] If you use `--template-engine=haml` (or `haml-rails`), the install
+generator will remove your application.html.erb layout and generate
+application.html.haml.
 
 [2] If you're upgrading from compass-html5-boilerplate you may need to
 remove config/compass.rb before you can run the generators.
