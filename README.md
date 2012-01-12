@@ -40,6 +40,18 @@ Run generator
 $ rails generate html5:install
 ```
 
+Options
+=========================
+
+To see other generators available:
+
+```
+$ rails generate html5:layout --help
+$ rails generate html5:partial --help
+$ rails generate html5:assets --help
+```
+
+
 Notes
 ---------------
 
@@ -50,8 +62,10 @@ application.html.haml.
 [2] If you're upgrading from compass-html5-boilerplate you may need to
 remove config/compass.rb before you can run the generators.
 
-[3] I'm still organizing stuff to be as flexible as possible, so some
-paths might change. Just make sure you re-run generators when upgrading.
+[3] Until the generator is done, you will want to add the following
+line to config/production.rb to precompile assets on deploy:
+
+`config.assets.precompile += %w( polyfills.js )`
 
 
 License
