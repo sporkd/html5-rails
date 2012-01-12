@@ -5,15 +5,20 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
   include GeneratorTestHelper
   tests Html5::Generators::AssetsGenerator
 
-  test "javascripts should be generated" do
+  test "html5:assets should make changes to application.js" do
     run_generator
+
     assert_file "app/assets/javascripts/application.js", /\/\/= require h5bp/ do |contents|
       assert_no_match /require_tree \./, contents
     end
+  end
+
+  test "html5:assets should generate polyfills.js" do
+    run_generator
     assert_file "app/assets/javascripts/polyfills.js"
   end
 
-  test "with no argument" do
+  test "html5:assets" do
     run_generator
 
     assert_file "app/assets/stylesheets/_defaults.css.scss"
@@ -23,7 +28,7 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
     end
   end
 
-  test "named application" do
+  test "html5:assets application" do
     run_generator %w(application)
 
     assert_file "app/assets/stylesheets/_defaults.css.scss"
@@ -33,7 +38,7 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
     end
   end
 
-  test "named pancakes" do
+  test "html5:assets pancakes" do
     run_generator %w(pancakes)
 
     assert_file "app/assets/stylesheets/_defaults.css.scss"
@@ -43,7 +48,7 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
     end
   end
 
-  test "named admin/pancakes" do
+  test "html5:assets admin/pancakes" do
     run_generator %w(admin/pancakes)
 
     assert_file "app/assets/stylesheets/_defaults.css.scss"

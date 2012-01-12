@@ -5,66 +5,67 @@ class LayoutGeneratorTest < Rails::Generators::TestCase
   include GeneratorTestHelper
   tests Html5::Generators::LayoutGenerator
 
-  test "with no argument" do
-    run_generator 
-    assert_file "app/views/layouts/application.html.erb"
-  end
+  %w(erb haml).each do |engine|
+    defaults = ["--template-engine=#{ engine }"]
 
-  test "with layout named application" do
-    run_generator %w(application)
-    assert_file "app/views/layouts/application.html.erb"
-  end
+    test "html5:layout --template-engine=#{ engine }" do
+      run_generator defaults
 
-  test "with flag --template-engine=haml" do
-    run_generator ["--template-engine=haml"]
-    assert_no_file "app/views/layouts/application.html.erb"
-    assert_file "app/views/layouts/application.html.haml"
-  end
+      assert_no_file "app/views/layouts/application.html.erb" if engine != 'erb'
+      assert_file "app/views/layouts/application.html.#{ engine }"
+    end
 
-  test "with layout named pancakes" do
-    run_generator %w(pancakes)
-    assert_file "app/views/layouts/pancakes.html.erb"
-  end
+    test "html5:layout application --template-engine=#{ engine }" do
+      run_generator %w(application) + defaults
+      assert_file "app/views/layouts/application.html.#{ engine }"
+    end
 
-  test "with layout named admin/pancakes" do
-    run_generator %w(admin/pancakes)
-    assert_file "app/views/layouts/admin/pancakes.html.erb"
-  end
+    test "html5:layout pancakes --template-engine=#{ engine }" do
+      run_generator %w(pancakes) + defaults
+      assert_file "app/views/layouts/pancakes.html.#{ engine }"
+    end
 
-  test "with layout named Admin::Pancakes" do
-    run_generator %w(Admin::Pancakes)
-    assert_file "app/views/layouts/admin/pancakes.html.erb"
-  end
+    test "html5:layout admin/pancakes --template-engine=#{ engine }" do
+      run_generator %w(admin/pancakes) + defaults
+      assert_file "app/views/layouts/admin/pancakes.html.#{ engine }"
+    end
 
-  test "without --all-partials flag" do
-    run_generator
-    assert_no_directory "app/views/application"
-  end
+    test "html5:layout Admin::Pancakes --template-engine=#{ engine }" do
+      run_generator %w(Admin::Pancakes) + defaults
+      assert_file "app/views/layouts/admin/pancakes.html.#{ engine }"
+    end
 
-  test "with --all-partials flag" do
-    run_generator ["--all-partials"]
+    test "html5:layout --template-engine=#{ engine } (without --all-partials)" do
+      run_generator defaults
+      assert_no_directory "app/views/application"
+    end
 
-    assert_file "app/views/layouts/application.html.erb"
-    %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
-      assert_file "app/views/application/#{ file }.html.erb"
+    test "html5:layout --all-partials --template-engine=#{ engine }" do
+      run_generator ["--all-partials"] + defaults
+
+      assert_file "app/views/layouts/application.html.#{ engine }"
+      %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+        assert_file "app/views/application/#{ file }.html.#{ engine }"
+      end
+    end
+
+    test "html5:layout pancakes --all-partials --template-engine=#{ engine }" do
+      run_generator ["pancakes", "--all-partials"] + defaults
+
+      assert_file "app/views/layouts/pancakes.html.#{ engine }"
+      %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+        assert_file "app/views/pancakes/#{ file }.html.#{ engine }"
+      end
+    end
+
+    test "html5:layout admin/pancakes --all-partials --template-engine=#{ engine }" do
+      run_generator ["admin/pancakes", "--all-partials"] + defaults
+
+      assert_file "app/views/layouts/admin/pancakes.html.#{ engine }"
+      %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+        assert_file "app/views/admin/pancakes/#{ file }.html.#{ engine }"
+      end
     end
   end
 
-  test "with layout named pancakes and --all-partials flag" do
-    run_generator ["pancakes", "--all-partials"]
-
-    assert_file "app/views/layouts/pancakes.html.erb"
-    %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
-      assert_file "app/views/pancakes/#{ file }.html.erb"
-    end
-  end
-
-  test "with layout named admin/pancakes all --all-partials flag" do
-    run_generator ["admin/pancakes", "--all-partials"]
-
-    assert_file "app/views/layouts/admin/pancakes.html.erb"
-    %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
-      assert_file "app/views/admin/pancakes/#{ file }.html.erb"
-    end
-  end
 end

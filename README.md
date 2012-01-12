@@ -39,18 +39,27 @@ Run generator
 $ rails generate html5:install
 ```
 
+or
+
+```
+$ rails generate html5:install --template-engine=haml
+```
+
 Notes
 ---------------
 
-[1] The install generator will remove your application.html.erb layout and
-replace with application.html.haml. An erb option is in the works.
+[1] If you use `--template-engine=haml`, the install generator will remove
+your application.html.erb layout.
 
-[2] I'm still organizing stuff to be as flexible as possible, so some
+[2] If you're upgrading from compass-html5-boilerplate you may need to
+remove config/compass.rb before you can run the generators.
+
+[3] I'm still organizing stuff to be as flexible as possible, so some
 paths might change. Just make sure you re-run generators when upgrading.
 
 
 License
 ========
 
-Copyright (c) 2010-2011 Peter Gumeson.
+Copyright (c) 2010-2012 Peter Gumeson.
 See [LICENSE](https://github.com/sporkd/html5-rails/blob/master/LICENSE) for full license.
