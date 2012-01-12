@@ -18,7 +18,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'compass', '0.12.alpha.2'
+  gem 'compass', '0.12.alpha.4'
   gem 'compass-h5bp'
 end
 
