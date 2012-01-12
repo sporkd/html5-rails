@@ -22,10 +22,10 @@ group :assets do
   gem 'compass-h5bp'
 end
 
-gem 'haml-rails' #(Optional) to use haml
+gem 'haml-rails' # Optional - to generate haml
 
 gem 'jquery-rails'
-gem 'html5-rails', :git => 'git://github.com/sporkd/html5-rails.git'
+gem 'html5-rails'
 ```
 
 Install
@@ -55,14 +55,17 @@ $ rails generate html5:assets --help
 Notes
 ---------------
 
-[1] If you use `--template-engine=haml` (or `haml-rails`), the install
+[1] The `compass-h5bp` is not actually a dependency but it does need to be
+included in your assets group for development and asset precompiling to work.
+
+[2] If you use `--template-engine=haml` (or `haml-rails`), the install
 generator will remove your application.html.erb layout and generate
 application.html.haml.
 
-[2] If you're upgrading from compass-html5-boilerplate you may need to
+[3] If you're upgrading from compass-html5-boilerplate you may need to
 remove config/compass.rb before you can run the generators.
 
-[3] Until the generator is done, you will want to add the following
+[4] Until the generator is done, you will want to add the following
 line to config/production.rb to precompile assets on deploy:
 
 `config.assets.precompile += %w( polyfills.js )`
