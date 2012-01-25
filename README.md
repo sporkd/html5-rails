@@ -4,12 +4,10 @@ Html5 for Rails
 Sensible Html5 defaults for Rails projects based on [Html5 Boilerplate](http://html5boilerplate.com)
 by Paul Irish, Divya Manian and many other [fine folks](https://github.com/h5bp/html5-boilerplate/contributors).
 
-(A rewrite of compass-html5-boilerplate that decouples the compass CSS library and adds Rails asset pipeline integration).
+(Also, a rewrite of compass-html5-boilerplate that adds Rails asset pipeline integration).
 
 Installation
 =========================
-
-We're a bit light on documentation right now, but this should get you going...
 
 In your Gemfile
 
@@ -53,20 +51,20 @@ $ rails generate html5:assets --help
 
 
 Notes
----------------
+==========
 
-[1] The `compass-h5bp` is not actually a dependency but it does need to be
+[1] The `compass-h5bp` gem is not actually a dependency but it does need to be
 included in your assets group for development and asset precompiling to work.
 
 [2] If you use `--template-engine=haml` (or `haml-rails`), the install
-generator will remove your application.html.erb layout and generate
-application.html.haml.
+generator will remove your application.html.erb layout so that
+application.html.haml.can be seen.
 
 [3] If you're upgrading from compass-html5-boilerplate you may need to
 remove config/compass.rb before you can run the generators.
 
-[4] Until the generator is done, you will want to add the following
-line to config/production.rb to precompile assets on deploy:
+[4] For the time being, you will want to add the following line to
+config/production.rb so that polyfills are precompiled on deploy:
 
 `config.assets.precompile += %w( polyfills.js )`
 
