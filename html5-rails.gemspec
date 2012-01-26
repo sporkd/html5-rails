@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "html5-rails"
 
-  s.add_dependency "jquery-rails",  "~> 1.0.19"
+  s.add_dependency "jquery-rails",  ">= 1.0.19"
   s.add_dependency "railties",      "~> 3.1"
   s.add_dependency "thor",          "~> 0.14"
 
