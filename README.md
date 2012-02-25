@@ -1,7 +1,7 @@
 Html5 for Rails
 =========================
 
-Sensible Html5 defaults for Rails projects based on [Html5 Boilerplate](http://html5boilerplate.com)
+Html5 for Rails projects based on [Html5 Boilerplate](http://html5boilerplate.com)
 by Paul Irish, Divya Manian and many other [fine folks](https://github.com/h5bp/html5-boilerplate/contributors).
 
 (Also, a rewrite of compass-html5-boilerplate that adds Rails asset pipeline integration).
@@ -16,7 +16,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'compass', '0.12.alpha.4'
+  gem 'compass-rails'
   gem 'compass-h5bp'
 end
 
