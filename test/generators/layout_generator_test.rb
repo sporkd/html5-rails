@@ -44,7 +44,7 @@ class LayoutGeneratorTest < Rails::Generators::TestCase
       run_generator ["--all-partials"] + defaults
 
       assert_file "app/views/layouts/application.html.#{ engine }"
-      %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+      %w(_flashes _footer _head _header _javascripts _stylesheets _chromeframe).each do |file|
         assert_file "app/views/application/#{ file }.html.#{ engine }"
       end
     end
@@ -53,7 +53,7 @@ class LayoutGeneratorTest < Rails::Generators::TestCase
       run_generator ["pancakes", "--all-partials"] + defaults
 
       assert_file "app/views/layouts/pancakes.html.#{ engine }"
-      %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+      %w(_flashes _footer _head _header _javascripts _stylesheets _chromeframe).each do |file|
         assert_file "app/views/pancakes/#{ file }.html.#{ engine }"
       end
     end
@@ -62,7 +62,7 @@ class LayoutGeneratorTest < Rails::Generators::TestCase
       run_generator ["admin/pancakes", "--all-partials"] + defaults
 
       assert_file "app/views/layouts/admin/pancakes.html.#{ engine }"
-      %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+      %w(_flashes _footer _head _header _javascripts _stylesheets _chromeframe).each do |file|
         assert_file "app/views/admin/pancakes/#{ file }.html.#{ engine }"
       end
     end

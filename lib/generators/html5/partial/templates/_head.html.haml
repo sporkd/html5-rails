@@ -9,10 +9,9 @@
     == #{ controller.controller_name.titleize } - #{ controller.action_name.titleize }
 
   %meta{ :name => "description", :content => "" }/
-  %meta{ :name => "author", :content => "" }/
 
   -# Mobile viewport optimized: h5bp.com/viewport
-  %meta{ :name => "viewport", :content => "width=device-width,initial-scale=1" }/
+  %meta{ :name => "viewport", :content => "width=device-width" }/
 
   -# Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
 
@@ -20,9 +19,7 @@
 
   -# More ideas for your <head> here: h5bp.com/d/head-Tips
 
-  -# All JavaScript at the bottom, except this Modernizr build incl. Respond.js
-  -# Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects;
-  -# for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/
+  -# All JavaScript at the bottom, except polyfills
   = javascript_include_tag "polyfills"
 
   = csrf_meta_tag

@@ -28,7 +28,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
   test "minimal application partials should be generated" do
     run_generator
-    %w(_footer _head _header).each do |file|
+    %w(_footer _head _header _chromeframe).each do |file|
       assert_file "app/views/application/#{ file }.html.erb"
     end
     %w(_flashes _javascripts _stylesheets).each do |file|

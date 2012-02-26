@@ -50,9 +50,9 @@ module Html5
 
       def partials
         if options[:all]
-          %w(_flashes _footer _head _header _javascripts _stylesheets)
+          %w(_flashes _footer _head _header _javascripts _stylesheets _chromeframe)
         elsif options.minimal?
-          %w(_footer _head _header)
+          %w(_footer _head _header _chromeframe)
         elsif file_name
           [file_name]
         else

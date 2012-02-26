@@ -26,7 +26,7 @@ class PartialGeneratorTest < Rails::Generators::TestCase
     test "html5:partial --minimal --template-engine=#{ engine }" do
       run_generator %w(--minimal) + defaults
 
-      %w(_footer _head _header).each do |file|
+      %w(_footer _head _header _chromeframe).each do |file|
         assert_file "app/views/application/#{ file }.html.#{ engine }"
       end
       %w(_flashes _javascripts _stylesheets).each do |file|
@@ -37,7 +37,7 @@ class PartialGeneratorTest < Rails::Generators::TestCase
     test "html5:partial --all --template-engine=#{ engine }" do
       run_generator %w(--all) + defaults
 
-      %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+      %w(_flashes _footer _head _header _javascripts _stylesheets _chromeframe).each do |file|
         assert_file "app/views/application/#{ file }.html.#{ engine }"
       end
     end
@@ -45,7 +45,7 @@ class PartialGeneratorTest < Rails::Generators::TestCase
     test "html5:partial --minimal --path=waffles --template-engine=#{ engine }" do
       run_generator ["--minimal", "--path=waffles"] + defaults
 
-      %w(_footer _head _header).each do |file|
+      %w(_footer _head _header _chromeframe).each do |file|
         assert_file "app/views/waffles/#{ file }.html.#{ engine }"
       end
       %w(_flashes _javascripts _stylesheets).each do |file|
@@ -56,7 +56,7 @@ class PartialGeneratorTest < Rails::Generators::TestCase
     test "html5:partial --all --path=admin/waffles --template-engine=#{ engine }" do
       run_generator ["--all", "--path=admin/waffles"] + defaults
 
-      %w(_flashes _footer _head _header _javascripts _stylesheets).each do |file|
+      %w(_flashes _footer _head _header _javascripts _stylesheets _chromeframe).each do |file|
         assert_file "app/views/admin/waffles/#{ file }.html.#{ engine }"
       end
     end
