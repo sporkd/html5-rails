@@ -3,41 +3,30 @@
 // Upgrade with: $ rails generate html5:install
 
 //-----------------------------------------
-// Define some variables first
+// Variables come first
 //-----------------------------------------
-@import "defaults";
-@import "<%= file_path %>/defaults";
+@import "variables";
 
 //-----------------------------------------
-// Compass libraries and extensions
+// Imports
 //-----------------------------------------
-// @import "compass/**/*";
+// @import "compass/css3"
 @import "h5bp";
 
 //-----------------------------------------
-// Html5 Boilerplate normalize.css
+// Prepend includes
 //-----------------------------------------
 @include h5bp-normalize;
-@include h5bp-chromeframe;
 
 //-----------------------------------------
-// Import all your custom partials below
+// Custom <%= file_path %> partials
 //-----------------------------------------
+@import "<%= file_path %>/chromeframe";
 @import "<%= file_path %>/document";
-
-
-
-//-----------------------------------------
-// Your media queries come last
-//-----------------------------------------
-@import "<%= file_path %>/media_queries";
+@import "<%= file_path %>/media_queries"; // Media queries last
 
 //-----------------------------------------
-// Html5 Boilerplate helpers
+// Append includes
 //-----------------------------------------
 @include h5bp-helpers;
-
-//-----------------------------------------
-// Html5 Boilerplate media
-//-----------------------------------------
 @include h5bp-media;

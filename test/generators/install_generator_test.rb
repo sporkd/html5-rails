@@ -39,9 +39,11 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   test "assets should be generated" do
     run_generator
 
-    assert_file "app/assets/stylesheets/_defaults.css.scss"
+    assert_file "app/assets/stylesheets/_variables.css.scss"
+    assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/chromeframe";/
     assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/document";/
-    %w(_defaults document media_queries).each do |file|
+    assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/media_queries";/
+    %w(chromeframe document media_queries).each do |file|
       assert_file "app/assets/stylesheets/application/#{ file }.css.scss"
     end
   end

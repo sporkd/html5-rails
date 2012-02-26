@@ -3,8 +3,12 @@
 // Upgrade with: $ rails generate html5:install
 
 //-----------------------------------------
-// Document styles
+// Chrome Frame prompt
 //-----------------------------------------
 
-html {}
-body {}
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: black;
+  padding: 0.2em 0;
+}

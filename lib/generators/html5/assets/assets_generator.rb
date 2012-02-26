@@ -30,7 +30,7 @@ module Html5
         end
 
         file_ext = ".css.scss"
-        copy_file "stylesheets/_defaults#{ file_ext }", "app/assets/stylesheets/_defaults#{ file_ext }"
+        copy_file "stylesheets/_variables#{ file_ext }", "app/assets/stylesheets/_variables#{ file_ext }"
         template "stylesheets/application#{ file_ext }", File.join("app/assets/stylesheets", asset_name + file_ext)
       end
 
@@ -56,7 +56,7 @@ module Html5
       end
 
       def stylesheet_partials
-        %w(_defaults document media_queries)
+        %w(chromeframe document media_queries)
       end
     end
   end
