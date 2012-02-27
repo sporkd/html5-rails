@@ -1,6 +1,6 @@
 !!! 5
 -# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither
-- ie_html :class => "no-js", :lang => "en" do
+- html_tag :class => "no-js", :lang => "en" do
   = render "head"
 
   %body{ :class => "#{ controller.controller_name }" }

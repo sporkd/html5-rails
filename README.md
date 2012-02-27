@@ -53,15 +53,15 @@ $ rails generate html5:assets --help
 Notes
 ==========
 
-[1] The `compass-h5bp` gem is not actually a dependency but it does need to be
+[1] The `compass-h5bp` gem is not a runtime dependency, but it does need to be
 included in your assets group for development and asset precompiling to work.
 
 [2] If you use `--template-engine=haml` (or `haml-rails`), the install
 generator will remove your application.html.erb layout so that
-application.html.haml.can be seen.
+application.html.haml will be used instead.
 
-[3] If you're upgrading from compass-html5-boilerplate you may need to
-remove config/compass.rb before you can run the generators.
+[3] If you're upgrading from compass-html5-boilerplate you need to
+remove config/compass.rb before you run the generators.
 
 [4] For the time being, you will want to add the following line to
 config/production.rb so that polyfills are precompiled on deploy:
