@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "railties",      "~> 3.1"
   s.add_dependency "thor",          "~> 0.14"
 
-  s.add_development_dependency "compass-h5bp", "~> 0.0.5"
+  s.add_development_dependency "compass-h5bp", "~> 0.1.0"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
