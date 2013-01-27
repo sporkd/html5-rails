@@ -5,7 +5,7 @@ class LayoutGeneratorTest < Rails::Generators::TestCase
   include GeneratorTestHelper
   tests Html5::Generators::LayoutGenerator
 
-  %w(erb haml).each do |engine|
+  %w(erb haml slim).each do |engine|
     defaults = ["--template-engine=#{ engine }"]
 
     test "html5:layout --template-engine=#{ engine }" do
