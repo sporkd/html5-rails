@@ -101,5 +101,5 @@ config/production.rb so that polyfills are precompiled on deploy:
 License
 ========
 
-Copyright (c) 2010-2012 Peter Gumeson.
+Copyright (c) 2010-2013 Peter Gumeson.
 See [LICENSE](https://github.com/sporkd/html5-rails/blob/master/LICENSE) for full license.
