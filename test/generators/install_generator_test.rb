@@ -26,6 +26,12 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     assert_file "app/views/layouts/application.html.haml"
   end
 
+  test "with flag --template-engine=slim" do
+    run_generator ["--template-engine=slim"]
+    assert_no_file "app/views/layouts/application.html.erb"
+    assert_file "app/views/layouts/application.html.slim"
+  end
+
   test "minimal application partials should be generated" do
     run_generator
     %w(_footer _head _header _chromeframe).each do |file|

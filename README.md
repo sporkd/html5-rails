@@ -20,7 +20,10 @@ group :assets do
   gem 'compass-h5bp'
 end
 
-gem 'haml-rails' # Optional - to generate haml
+# Optional - to generate haml
+#gem 'haml-rails'
+# Optional - to generate slim
+#gem 'slim-rails'
 
 gem 'jquery-rails'
 gem 'html5-rails'
