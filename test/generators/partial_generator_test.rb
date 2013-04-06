@@ -6,7 +6,7 @@ class PartialGeneratorTest < Rails::Generators::TestCase
   tests Html5::Generators::PartialGenerator
 
   %w(erb haml slim).each do |engine|
-    defaults = ["--template-engine=#{ engine }"] 
+    defaults = ["--template-engine=#{ engine }"]
 
     test "html5:partial --template-engine=#{ engine }" do
       run_generator defaults

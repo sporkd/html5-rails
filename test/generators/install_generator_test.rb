@@ -14,7 +14,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     run_generator
     assert_file "config/html5_rails.yml"
   end
-  
+
   test "application layout should be generated" do
     run_generator
     assert_file "app/views/layouts/application.html.erb"
