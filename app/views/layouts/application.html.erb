@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<%# http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither %>
 <%= html_tag :class => "no-js" %>
   <%= render "head" %>
 
-  <body class="pages">
+  <body class="<%= controller.controller_name %>">
     <%= render "chromeframe" %>
     <%= render "header" %>
+    <%= render "flashes" %>
 
-    <div id="main" role="main">
-      <%= render "flashes" %>
-      <%= yield %>
-    </div>
+    <%= yield %>
 
     <%= render "footer" %>
 

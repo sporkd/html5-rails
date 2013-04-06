@@ -1,21 +1,13 @@
 <head>
   <meta charset="utf-8">
-
-  <%%# Use the .htaccess and remove these lines to avoid edge case issues. %>
-  <%%# More info: h5bp.com/b/378 %>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
-  <meta name="description" content="">
+  <title><%%= "#{ controller.controller_name.titleize } - #{ controller.action_name.titleize }" %></title>
 
-  <%%# Mobile viewport optimized: h5bp.com/viewport %>
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
 
   <%%= render "stylesheets" %>
-
-  <%%# More ideas for your <head> here: h5bp.com/d/head-Tips %>
-
-  <%%# All JavaScript at the bottom, except polyfills %>
   <%%= javascript_include_tag "polyfills" %>
 
   <%%= csrf_meta_tag %>
