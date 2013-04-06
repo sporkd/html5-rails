@@ -18,12 +18,6 @@ module Html5
             haml_concat("<!--<![endif]-->".html_safe)
             yield
           end
-        elsif block_given? && defined? Slim
-          html = html.html_safe
-          html << tag(:html, attrs, true)
-          html << " <!--<![endif]-->\n".html_safe
-          html << "#{yield}"
-          html
         else
           html = html.html_safe
           html << tag(:html, attrs, true)
