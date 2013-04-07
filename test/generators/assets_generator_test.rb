@@ -21,10 +21,10 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
   test "html5:assets" do
     run_generator
 
-    assert_file "app/assets/stylesheets/_variables.css.scss"
-    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/document';/
-    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/media_queries';/
-    %w(document media_queries).each do |file|
+    assert_file "app/assets/stylesheets/application/index.css.scss", /@import 'variables';/
+    assert_file "app/assets/stylesheets/application/index.css.scss", /@import 'layout';/
+    assert_file "app/assets/stylesheets/application/index.css.scss", /@import 'media_queries';/
+    %w(variables layout media_queries).each do |file|
       assert_file "app/assets/stylesheets/application/#{ file }.css.scss"
     end
   end
@@ -32,10 +32,10 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
   test "html5:assets application" do
     run_generator %w(application)
 
-    assert_file "app/assets/stylesheets/_variables.css.scss"
-    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/document';/
-    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/media_queries';/
-    %w(document media_queries).each do |file|
+    assert_file "app/assets/stylesheets/application/index.css.scss", /@import 'variables';/
+    assert_file "app/assets/stylesheets/application/index.css.scss", /@import 'layout';/
+    assert_file "app/assets/stylesheets/application/index.css.scss", /@import 'media_queries';/
+    %w(variables layout media_queries).each do |file|
       assert_file "app/assets/stylesheets/application/#{ file }.css.scss"
     end
   end
@@ -43,10 +43,10 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
   test "html5:assets pancakes" do
     run_generator %w(pancakes)
 
-    assert_file "app/assets/stylesheets/_variables.css.scss"
-    assert_file "app/assets/stylesheets/pancakes.css.scss", /@import 'pancakes\/document';/
-    assert_file "app/assets/stylesheets/pancakes.css.scss", /@import 'pancakes\/media_queries';/
-    %w(document media_queries).each do |file|
+    assert_file "app/assets/stylesheets/pancakes/index.css.scss", /@import 'variables';/
+    assert_file "app/assets/stylesheets/pancakes/index.css.scss", /@import 'layout';/
+    assert_file "app/assets/stylesheets/pancakes/index.css.scss", /@import 'media_queries';/
+    %w(variables layout media_queries).each do |file|
       assert_file "app/assets/stylesheets/pancakes/#{ file }.css.scss"
     end
   end
@@ -54,11 +54,11 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
   test "html5:assets admin/pancakes" do
     run_generator %w(admin/pancakes)
 
-    assert_file "app/assets/stylesheets/_variables.css.scss"
-    assert_file "app/assets/stylesheets/admin_pancakes.css.scss", /@import 'admin\/pancakes\/document';/
-    assert_file "app/assets/stylesheets/admin_pancakes.css.scss", /@import 'admin\/pancakes\/media_queries';/
-    %w(document media_queries).each do |file|
-      assert_file "app/assets/stylesheets/admin_pancakes/#{ file }.css.scss"
+    assert_file "app/assets/stylesheets/admin/pancakes/index.css.scss", /@import 'variables';/
+    assert_file "app/assets/stylesheets/admin/pancakes/index.css.scss", /@import 'layout';/
+    assert_file "app/assets/stylesheets/admin/pancakes/index.css.scss", /@import 'media_queries';/
+    %w(variables layout media_queries).each do |file|
+      assert_file "app/assets/stylesheets/admin/pancakes/#{ file }.css.scss"
     end
   end
 end

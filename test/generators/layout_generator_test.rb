@@ -67,5 +67,4 @@ class LayoutGeneratorTest < Rails::Generators::TestCase
       end
     end
   end
-
 end

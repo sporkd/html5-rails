@@ -1,8 +1,8 @@
 Description:
-    Removes Erb layout and installs a html5-rails Haml layout.
+    Installs a new html5-rails layout in /app/views/layouts
 
 Example:
-    rails generate html5:layout layout_name
+    rails generate html5:layout my_new_layout
 
     This will create:
-        app/views/layouts/layout_name.html.haml
+        app/views/layouts/my_new_layout.html.(erb|haml|slim)

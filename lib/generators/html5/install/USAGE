@@ -7,3 +7,17 @@ Example:
     This will create:
         config/compass.rb
         config/html5_rails.yml
+        app/views/layouts/application.html.(erb|haml|slim)
+        app/views/layouts/application.html.(erb|haml|slim)
+        app/views/application
+        app/views/application/_footer.html.(erb|haml|slim)
+        app/views/application/_head.html.(erb|haml|slim)
+        app/views/application/_header.html.(erb|haml|slim)
+        app/views/application/_chromeframe.html.(erb|haml|slim)
+        app/assets/javascripts/application.js
+        app/assets/javascripts/polyfills.js
+        app/assets/stylesheets/application
+        app/assets/stylesheets/application/index.css.scss
+        app/assets/stylesheets/application/variables.css.scss
+        app/assets/stylesheets/application/layout.css.scss
+        app/assets/stylesheets/application/media_queries.css.scss

@@ -9,21 +9,21 @@ module Html5
 
       argument :name, :type => :string,
                       :required => false,
-                      :default => "application"
+                      :default => 'application'
 
       class_option :all_partials, :type => :boolean,
                                   :default => false,
-                                  :desc => "Generate all partials for this layout"
+                                  :desc => 'Generate all partials for this layout'
 
       class_option :minimal_partials, :type => :boolean,
                                       :default => false,
-                                      :desc => "Generate minimal partials for this layout"
+                                      :desc => 'Generate minimal partials for this layout'
 
       class_option :template_engine
 
       def generate_layout
-        if file_path == "application" && options[:template_engine].to_s != "erb"
-          remove_file File.join("app/views/layouts/application.html.erb")
+        if file_path == 'application' && options[:template_engine].to_s != 'erb'
+          remove_file "app/views/layouts/application.html.erb"
         end
         template filename_with_extensions("application"), File.join("app/views/layouts", class_path, filename_with_extensions(file_name))
       end

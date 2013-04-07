@@ -9,27 +9,27 @@ module Html5
 
       argument :name, :type => :string,
                       :required => false,
-                      :default => ""
+                      :default => ''
 
       class_option :all, :type => :boolean,
                          :default => false,
-                         :desc => "Generate all partials"
+                         :desc => 'Generate all partials'
 
       class_option :minimal, :type => :boolean,
                              :default => false,
-                             :desc => "Generate minimal partials (_head, _header, _footer)"
+                             :desc => 'Generate minimal partials (_head, _header, _footer)'
 
        class_option :path, :type => :string,
                            :default => nil,
                            :required => false,
-                           :desc => "resource path to generate partials in"
+                           :desc => 'resource path to generate partials in'
 
       class_option :template_engine
 
       # def validate_name
       #   if options[:all] || options[:minimal]
       #     if partials.include?(file_name)
-      #       path = class_path.join("/")
+      #       path = class_path.join('/')
       #       message = "Argument '#{ file_path }' not allowed with --all or --minimal options."
       #       message << " Try using '#{ path }' instead." if !path.blank?
       #       raise Error, message
@@ -39,7 +39,7 @@ module Html5
 
       def generate_partials
         if partials.any?
-          empty_directory File.join("app/views", partial_path)
+          empty_directory File.join('app/views', partial_path)
         end
         partials.each do |partial|
           generate_partial(partial)
@@ -64,13 +64,13 @@ module Html5
         if !options.path.blank?
           path = options.path
         else
-          path = class_path.join("/")
+          path = File.join(class_path)
         end
-        path.blank? ? "application" : path
+        path.blank? ? 'application' : path
       end
 
       def generate_partial(partial_name)
-        template filename_with_extensions(partial_name), File.join("app/views", partial_path, filename_with_extensions(partial_name))
+        template filename_with_extensions(partial_name), File.join('app/views', partial_path, filename_with_extensions(partial_name))
       end
     end
   end

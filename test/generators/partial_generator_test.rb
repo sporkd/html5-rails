@@ -71,5 +71,4 @@ class PartialGeneratorTest < Rails::Generators::TestCase
       assert_file "app/views/application/_footer.html.#{ engine }", /Dummy, Copyright/
     end
   end
-
 end

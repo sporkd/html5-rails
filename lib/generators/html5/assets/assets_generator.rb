@@ -9,39 +9,40 @@ module Html5
 
       argument :name, :type => :string,
                       :required => false,
-                      :default => "application"
+                      :default => 'application'
 
       def generate_javascripts
-        asset_path = "app/assets/javascripts/#{ asset_name }.js"
-        if File.exist?(asset_path) && File.read(asset_path) =~ /require jquery_ujs$/
-          inject_into_file asset_path, :after => "require jquery_ujs" do
+        prefix = File.join('app', 'assets', 'javascripts')
+        manifest = File.join(prefix, File.basename(asset_path) + '.js')
+
+        empty_directory File.join(prefix, File.dirname(asset_path))
+
+        if File.exist?(manifest) && File.read(manifest) =~ /require jquery_ujs$/
+          inject_into_file manifest, :after => "require jquery_ujs" do
             "\n//= require h5bp"
           end
-          gsub_file asset_path, /^\/\/= require_tree \.(\\n)?/, ""
+          gsub_file manifest, /^\/\/= require_tree \.(\\n)?/, ''
         else
-          template "javascripts/application.js", asset_path
+          template "javascripts/application.js", manifest
         end
-        template "javascripts/polyfills.js", "app/assets/javascripts/polyfills.js"
+
+        template "javascripts/polyfills.js", File.join(prefix, 'polyfills.js')
       end
 
       def generate_stylesheets
-        if file_path == "application"
-          remove_file "app/assets/stylesheets/application.css"
+        prefix = File.join('app', 'assets', 'stylesheets')
+
+        if file_path == 'application'
+          remove_file File.join(prefix, 'application.css')
         end
 
-        file_ext = ".css.scss"
-        copy_file "stylesheets/_variables#{ file_ext }", "app/assets/stylesheets/_variables#{ file_ext }"
-        template "stylesheets/application#{ file_ext }", File.join("app/assets/stylesheets", asset_name + file_ext)
-      end
-
-      def generate_stylesheet_partials
-        if stylesheet_partials.any?
-          empty_directory File.join("app/assets/stylesheets", asset_name)
+        if stylesheets.any?
+          empty_directory File.join(prefix, asset_path)
         end
 
-        file_ext = ".css.scss"
-        stylesheet_partials.each do |partial|
-          template File.join("stylesheets/application", partial + file_ext), File.join("app/assets/stylesheets", asset_name, partial + file_ext)
+        stylesheets.each do |stylesheet|
+          file_name = stylesheet + ".css.scss"
+          template "stylesheets/application/#{ file_name }", File.join(prefix, asset_path, file_name)
         end
       end
 
@@ -51,12 +52,12 @@ module Html5
 
     protected
 
-      def asset_name
-        (class_path + [file_name]).join('_')
+      def asset_path
+        File.join(class_path + [file_name])
       end
 
-      def stylesheet_partials
-        %w(document media_queries)
+      def stylesheets
+        %w(index variables layout media_queries)
       end
     end
   end

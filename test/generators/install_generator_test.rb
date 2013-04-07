@@ -45,10 +45,10 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   test "assets should be generated" do
     run_generator
 
-    assert_file "app/assets/stylesheets/_variables.css.scss"
-    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/document';/
-    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/media_queries';/
-    %w(document media_queries).each do |file|
+    assert_file "app/assets/stylesheets/application/index.css.scss", /@import 'variables';/
+    assert_file "app/assets/stylesheets/application/index.css.scss", /@import 'layout';/
+    assert_file "app/assets/stylesheets/application/index.css.scss", /@import 'media_queries';/
+    %w(variables layout media_queries).each do |file|
       assert_file "app/assets/stylesheets/application/#{ file }.css.scss"
     end
   end

@@ -1,8 +1,18 @@
 Description:
-    Generates a partial
+    Copies an existing html5-rails partial to the views folder so it can be editied.
 
 Example:
-    rails generate html5:partial _partial_name
+    rails generate html5:partial _javascripts
 
     This will create:
-        app/views/application/_partial_name.html.haml
+        app/views/application/_partial_name.html.(erb|haml|slim)
+
+    Choices include:
+      _head
+      _chromeframe
+      _flashes
+      _header
+      _footer
+      _javascripts
+      _stylesheets
+

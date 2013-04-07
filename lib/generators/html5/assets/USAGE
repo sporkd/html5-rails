@@ -1,11 +1,14 @@
 Description:
-    Generates CSS assets with compass imports and partials.
+    Generates javascript and stylesheet assets for a named resource.
 
 Example:
     rails generate html5:assets admin
 
     This will create:
-        app/assets/stylesheets/admin.css.scss
-        app/assets/stylesheets/_defaults.css.scss
-        app/assets/stylesheets/admin/document.css.scss
+        app/assets/javascripts/admin.js
+        app/assets/javascripts/polyfills.js
+        app/assets/stylesheets/admin
+        app/assets/stylesheets/admin/index.css.scss
+        app/assets/stylesheets/admin/variables.css.scss
+        app/assets/stylesheets/admin/layout.css.scss
         app/assets/stylesheets/admin/media_queries.css.scss
