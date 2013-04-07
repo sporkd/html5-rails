@@ -58,7 +58,6 @@ $ rails generate html5:install
       create  app/assets/stylesheets/_variables.css.scss
       create  app/assets/stylesheets/application.css.scss
       create  app/assets/stylesheets/application
-      create  app/assets/stylesheets/application/chromeframe.css.scss
       create  app/assets/stylesheets/application/document.css.scss
       create  app/assets/stylesheets/application/media_queries.css.scss
 

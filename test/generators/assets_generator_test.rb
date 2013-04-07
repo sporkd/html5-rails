@@ -22,10 +22,9 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
     run_generator
 
     assert_file "app/assets/stylesheets/_variables.css.scss"
-    assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/document";/
-    assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/chromeframe";/
-    assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/media_queries";/
-    %w(chromeframe document media_queries).each do |file|
+    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/document';/
+    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/media_queries';/
+    %w(document media_queries).each do |file|
       assert_file "app/assets/stylesheets/application/#{ file }.css.scss"
     end
   end
@@ -34,10 +33,9 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
     run_generator %w(application)
 
     assert_file "app/assets/stylesheets/_variables.css.scss"
-    assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/chromeframe";/
-    assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/document";/
-    assert_file "app/assets/stylesheets/application.css.scss", /@import "application\/media_queries";/
-    %w(chromeframe document media_queries).each do |file|
+    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/document';/
+    assert_file "app/assets/stylesheets/application.css.scss", /@import 'application\/media_queries';/
+    %w(document media_queries).each do |file|
       assert_file "app/assets/stylesheets/application/#{ file }.css.scss"
     end
   end
@@ -46,10 +44,9 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
     run_generator %w(pancakes)
 
     assert_file "app/assets/stylesheets/_variables.css.scss"
-    assert_file "app/assets/stylesheets/pancakes.css.scss", /@import "pancakes\/chromeframe";/
-    assert_file "app/assets/stylesheets/pancakes.css.scss", /@import "pancakes\/document";/
-    assert_file "app/assets/stylesheets/pancakes.css.scss", /@import "pancakes\/media_queries";/
-    %w(chromeframe document media_queries).each do |file|
+    assert_file "app/assets/stylesheets/pancakes.css.scss", /@import 'pancakes\/document';/
+    assert_file "app/assets/stylesheets/pancakes.css.scss", /@import 'pancakes\/media_queries';/
+    %w(document media_queries).each do |file|
       assert_file "app/assets/stylesheets/pancakes/#{ file }.css.scss"
     end
   end
@@ -58,10 +55,9 @@ class AssetsGeneratorTest < Rails::Generators::TestCase
     run_generator %w(admin/pancakes)
 
     assert_file "app/assets/stylesheets/_variables.css.scss"
-    assert_file "app/assets/stylesheets/admin_pancakes.css.scss", /@import "admin\/pancakes\/chromeframe";/
-    assert_file "app/assets/stylesheets/admin_pancakes.css.scss", /@import "admin\/pancakes\/document";/
-    assert_file "app/assets/stylesheets/admin_pancakes.css.scss", /@import "admin\/pancakes\/media_queries";/
-    %w(chromeframe document media_queries).each do |file|
+    assert_file "app/assets/stylesheets/admin_pancakes.css.scss", /@import 'admin\/pancakes\/document';/
+    assert_file "app/assets/stylesheets/admin_pancakes.css.scss", /@import 'admin\/pancakes\/media_queries';/
+    %w(document media_queries).each do |file|
       assert_file "app/assets/stylesheets/admin_pancakes/#{ file }.css.scss"
     end
   end

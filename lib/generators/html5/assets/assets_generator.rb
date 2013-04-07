@@ -56,7 +56,7 @@ module Html5
       end
 
       def stylesheet_partials
-        %w(chromeframe document media_queries)
+        %w(document media_queries)
       end
     end
   end
