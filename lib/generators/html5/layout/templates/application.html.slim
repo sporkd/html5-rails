@@ -9,16 +9,16 @@ doctype html
 html.no-js
   /!<![endif]
 
-  = render 'head'
+  == render 'head'
 
   body class=controller.controller_name
-    = render 'chromeframe'
-    = render 'header'
+    == render 'chromeframe'
+    == render 'header'
 
-    = render 'flashes'
-    = yield
+    == render 'flashes'
+    == yield
 
-    = render 'footer'
+    == render 'footer'
 
     / Javascript at the bottom for fast page loading
-    = render 'javascripts'
+    == render 'javascripts'

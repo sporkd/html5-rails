@@ -1,7 +1,7 @@
 = javascript_include_tag 'application'
 
 /  Append your own using content_for :javascripts
-= yield :javascripts
+== yield :javascripts
 
 / Google Analytics
 / Looks for google_account_id first in ENV['GOOGLE_ACCOUNT_ID'] then in config/html5_rails.yml
