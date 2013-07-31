@@ -2,7 +2,7 @@
 
 You've successfully installed html5-rails!
 
-If want to genrate additional layouts, just run:
+If want to generate additional layouts, just run:
 $ rails g html5:layout my_new_layout
 
 Or if want to customize your other shared partials:
