@@ -46,9 +46,9 @@ module Html5
         end
       end
 
-      # TODO
-      # def add_precompiles
-      # end
+      def add_precompiles
+        gsub_file "config/environments/production.rb", "# config.assets.precompile += %w( search.js )", "config.assets.precompile += %w( polyfills.js )"
+      end
 
     protected
 
