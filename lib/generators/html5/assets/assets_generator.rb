@@ -34,6 +34,7 @@ module Html5
 
         if file_path == 'application'
           remove_file File.join(prefix, 'application.css')
+          append_file File.join(prefix, 'application.css.scss'),"@import 'application/index'"
         end
 
         if stylesheets.any?
